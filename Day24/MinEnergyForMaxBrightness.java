@@ -3,6 +3,10 @@ import java.util.Scanner;
 
 class Solution {
     public long minEnergy(int n, int b, int[][] i) {
+        //step 1 --> sort intervals
+        //step 2 --> merge intervals --> find total time
+        //step 3 --> find no of bulbs
+        
         Arrays.sort(i, (a,c) -> a[0] - c[0]);
 
         int s = i[0][0];
