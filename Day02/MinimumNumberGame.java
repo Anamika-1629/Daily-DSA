@@ -1,6 +1,6 @@
 import java.util.*;
 
-class MinimumNumberGame {
+class MinimumNumberGame{
     public int[] numberGame(int[] nums) {
 
         int[] arr = new int[nums.length];
