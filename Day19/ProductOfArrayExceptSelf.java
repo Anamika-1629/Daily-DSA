@@ -1,23 +1,29 @@
 import java.util.Scanner;
 
-class ProductOfArrayExceptSelf {
+class Solution {
     public int[] productExceptSelf(int[] nums) {
-        int n = nums.length;
-        int[] result = new int[n];
+        int[] res = new int[nums.length];
 
-        result[0] = 1;
-        for (int i = 1; i < n; i++) {
-            result[i] = result[i - 1] * nums[i - 1];
+        res[0] = 1; //initial prefix product at index 0 --> always 1, no prefix 
+
+        //prefix product loop
+        for (int i = 1; i < nums.length; i++){
+            //multiply last index value of res(prefix product) with that of nums
+            res[i] = res[i-1]*nums[i-1]; 
         }
 
-        int right = 1;
-        for (int i = n - 1; i >= 0; i--) {
-            result[i] = result[i] * right;
-            right *= nums[i];
+        int suffix = 1; //suffix product for last element --> always 1
+
+        for (int i = nums.length-1; i >= 0; i--){
+            res[i] *= suffix; //multiply current prefix product with suffix product
+            suffix *= nums[i]; //update suffix product
         }
 
-        return result;
+        return res;
     }
+}
+
+class ProductOfArrayExceptSelf {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -29,7 +35,7 @@ class ProductOfArrayExceptSelf {
             nums[i] = sc.nextInt();
         }
 
-        ProductOfArrayExceptSelf obj = new ProductOfArrayExceptSelf();
+        Solution obj = new Solution();
         int[] res = obj.productExceptSelf(nums);
 
         for (int i = 0; i < res.length; i++){
