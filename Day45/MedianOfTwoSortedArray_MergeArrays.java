@@ -1,5 +1,10 @@
 import java.util.*;
 
+/*
+Copy both arrays into a new array/list and sort it
+Time Complexity: O((n+m)log(n+m))
+Space Complexity: O(n+m)
+*/
 class Solution{
     public double findMedianSortedArrays(int[] nums1, int[] nums2){
         List<Integer> merged = new ArrayList<>();
