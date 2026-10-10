@@ -48,4 +48,3 @@ public class CountValsWithEqSpacedOccurance_II{
         sc.close();
     }
 }
-
